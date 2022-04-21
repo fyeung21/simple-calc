@@ -1,6 +1,7 @@
 import '../styles/App.css';
 import Header from './Header';
 import Buttons from './Buttons';
+import Footer from './Footer';
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
     <div className="App">
       <Header title="Simple Calc"/>
       <Buttons/>
+      <Footer/>
     </div>
   );
 }
