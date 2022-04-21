@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import Button from './Button';
+import Buttons from './Buttons';
 
 const App = () => {
 
@@ -9,13 +9,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Button 
-      handleClick={handleClick}
-      type={type} 
-      className={className} 
-      value={value}
-      text={text}>
-      </Button>
+      <Buttons/>
     </div>
   );
 }
