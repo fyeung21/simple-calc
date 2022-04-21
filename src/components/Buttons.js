@@ -4,7 +4,7 @@ import Button from './Button';
 
 const Buttons = () => {
   return (
-    <div className="buttons-cont">
+    <div className="buttonsCont">
         {calculatorButtons.map((oneButton, i) => {
             return (
                 <Button key={i}

@@ -11,9 +11,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header title="Simple Calc"/>
-      <Buttons/>
-      <Footer/>
+        <Header title="Simple Calc"/>
+      <main>
+        <Buttons/>
+      </main>
+        <Footer/>
     </div>
   );
 }

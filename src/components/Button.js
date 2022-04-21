@@ -2,7 +2,7 @@ import '../scss/styles.scss';
 
 const Button = ({type, className, text, value}) => {
   return (
-    <div className="button-cont">
+    <div className="buttonCont">
         <button type={type} className={className} value={value}>{text}</button>
     </div>
   );
