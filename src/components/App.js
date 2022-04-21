@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import '../scss/styles.scss';
 import Header from './Header';
 import Buttons from './Buttons';
 import Footer from './Footer';

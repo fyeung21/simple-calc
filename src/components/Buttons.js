@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import '../scss/styles.scss';
 import { calculatorButtons } from '../globals/calculator-button-data';
 import Button from './Button';
 

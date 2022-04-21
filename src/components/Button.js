@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import '../scss/styles.scss';
 
 const Button = ({type, className, text, value}) => {
   return (
