@@ -1,4 +1,5 @@
 import '../styles/App.css';
+import Header from './Header';
 import Buttons from './Buttons';
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header title="Simple Calc"/>
       <Buttons/>
     </div>
   );
