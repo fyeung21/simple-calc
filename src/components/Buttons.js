@@ -2,7 +2,7 @@ import '../scss/styles.scss';
 import { calculatorButtons } from '../globals/calculator-button-data';
 import Button from './Button';
 
-const Buttons = () => {
+const Buttons = ({handleClick}) => {
   return (
     <div className="buttonsCont">
         {calculatorButtons.map((oneButton, i) => {
@@ -12,6 +12,7 @@ const Buttons = () => {
                     className={oneButton.className}
                     value={oneButton.value}
                     text={oneButton.text}
+                    onClick={handleClick}
                 />
             );
         })}
