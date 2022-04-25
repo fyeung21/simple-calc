@@ -17,13 +17,13 @@ const App = () => {
   const handleClick = (type, value) => {
 
     console.log('clicked', type);
-      console.log('clicked', value)
+    console.log('clicked', value)
     
     if (type == 'clear') {
       // handleClear()
 
     } else if (type == 'enter') {
-      // handleEqual()
+      handleEqual()
 
     } else if (type == 'operator') {
       handleOperator(value)
@@ -44,21 +44,17 @@ const App = () => {
     setCalc(`${calc} ${value} `);
   }
 
-  //calculate and displays result and reset calc
-  // const handleEqual = () => {
-  //   if (buttonValue == 'Equal') {
-  //     console.log('calculated')
+  //calculate and stores answer into result state variable
+  const handleEqual = () => {
+      console.log('calculating')
 
-  //     eval(calc)
+      let calculate = eval(calc);
 
-  //     setCalc([...calc, math(a,b, {value})])
+      setResult(calculate);
 
-  //     setResult(calc)
-
-  //   } else {
-  //     setResult("cannot calculate");
-  //   }
-  // }
+      //reset calc state variable
+      setCalc("");
+  }
 
   //clears display
   // const handleClear = () => {
