@@ -1,9 +1,11 @@
+@use '../variables' as *;
+
 .buttonsCont {
     display: grid;
     grid-template-columns: repeat(6, 5rem);
     grid-template-rows: repeat(4, 5rem);
-    // grid-auto-flow: column;
     justify-content: center;
+    gap: 0.25rem;
 
     .buttonCont {
         &:nth-child(2) {
@@ -47,10 +49,11 @@
         button {
             width: 100%;
             height: 100%;
-            border: 1px solid black;
+            border: none;
+            border-radius: 10px;
 
             &:hover {
-                background-color: lightblue;
+                background-color: $font-color-hover;
             }
         }
     }
