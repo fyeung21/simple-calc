@@ -19,16 +19,16 @@ const App = () => {
     console.log('clicked', type);
     console.log('clicked', value)
     
-    if (type == 'clear') {
-      // handleClear()
+    if (type === 'clear') {
+      handleClear(value)
 
-    } else if (type == 'enter') {
+    } else if (type === 'enter') {
       handleEqual()
 
-    } else if (type == 'operator') {
+    } else if (type === 'operator') {
       handleOperator(value)
 
-    } else if (type == 'number') {
+    } else if (type === 'number') {
       
       handleNumber(value)
     }
@@ -44,7 +44,7 @@ const App = () => {
     setCalc(`${calc} ${value} `);
   }
 
-  //calculate and stores answer into result state variable
+  //calculate and store answer into result state variable
   const handleEqual = () => {
       console.log('calculating')
 
@@ -56,21 +56,29 @@ const App = () => {
       setCalc("");
   }
 
-  //clears display
-  // const handleClear = () => {
-  //   console.log('clear button clicked')
-  //   if (buttonValue == 'All Clear') {
-  //     console.log('all clear')
-  //     setResult("");
-  //     setCalc("")
+  //clear display and calc string
+  const handleClear = (value) => {
 
-  //   } else if (buttonValue == 'Clear') {
-  //     console.log('clear input')
-  //     //make display input 0?
-  //     let input = input - ('minus string letters..')
-  //     setCalc("")
-  //   }
-  // }
+    if (value === 'All Clear') {
+      //clear all states
+      setResult("");
+      setCalc("")
+
+    } else if (value == 'Clear') {
+      //delete calc string's last input
+      let editInput;
+
+      if(calc[calc.length -1] === ' '){
+        editInput = calc.slice(0, calc.length -3)
+
+      }else{
+        editInput = calc.slice(0, calc.length -1)
+
+      }
+      //set calc state variable with edited input
+      setCalc(editInput)
+    }
+  }
 
   return (
     <div className="App">
