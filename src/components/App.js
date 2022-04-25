@@ -13,6 +13,10 @@ const App = () => {
   //store result flag to display result or calc
   const [isResult, setIsResult] = useState(false);
 
+  //store operator flag
+  const [isOperator, setIsOperator] = useState(false);
+
+
   //detects type and switches to correct function
   const handleClick = (type, value) => {
 
@@ -36,17 +40,31 @@ const App = () => {
       if (isResult === true) {
         setCalc(`${value}`);
 
-        //switch result flag back to false
+        //switch result and operator flags back to false
         setIsResult(false);
+        setIsOperator(false);
 
       } else {
         setCalc(`${calc}${value}`);
+        setIsOperator(false);
       }
   }
 
   //input operator to calc string
   const handleOperator = (value) => {
-    setCalc(`${calc} ${value} `);
+    if (isOperator === value) {
+      return;
+
+    } else if (isOperator !== false && (isOperator !== value)){
+      const editInput = calc.slice(0, calc.length -3);
+
+      setCalc(`${editInput} ${value} `);
+      setIsOperator(value);
+
+    } else {
+      setIsOperator(value)
+      setCalc(`${calc} ${value} `);
+    }
   }
 
   //calculate and store answer into result state variable
@@ -65,7 +83,7 @@ const App = () => {
     if (value === 'All Clear') {
       //clear calc state
       setCalc("")
-      
+
       //set result flag back to false
       setIsResult(false);
 
