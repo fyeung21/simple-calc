@@ -10,15 +10,12 @@ const App = () => {
   //store calculations, user input
   const [calc, setCalc] = useState("");
 
-  //store result after calculation to display on screen
-  const [result, setResult] = useState("");
+  //store result flag to display result or calc
+  const [isResult, setIsResult] = useState(false);
 
   //detects type and switches to correct function
   const handleClick = (type, value) => {
 
-    console.log('clicked', type);
-    console.log('clicked', value)
-    
     if (type === 'clear') {
       handleClear(value)
 
@@ -36,7 +33,15 @@ const App = () => {
 
   //input number to calc string
   const handleNumber = (value) => {
-      setCalc(`${calc}${value}`);
+      if (isResult === true) {
+        setCalc(`${value}`);
+
+        //switch result flag back to false
+        setIsResult(false);
+
+      } else {
+        setCalc(`${calc}${value}`);
+      }
   }
 
   //input operator to calc string
@@ -50,19 +55,19 @@ const App = () => {
 
       let calculate = eval(calc);
 
-      setResult(calculate);
-
-      //reset calc state variable
-      setCalc("");
+      setCalc(`${calculate}`);
+      setIsResult(true);
   }
 
   //clear display and calc string
   const handleClear = (value) => {
 
     if (value === 'All Clear') {
-      //clear all states
-      setResult("");
+      //clear calc state
       setCalc("")
+      
+      //set result flag back to false
+      setIsResult(false);
 
     } else if (value == 'Clear') {
       //delete calc string's last input
@@ -84,7 +89,7 @@ const App = () => {
     <div className="App">
         <Header title="Simple Calc"/>
       <main>
-        <Display result={result}/>
+        <Display displayText={calc} />
         <Buttons handleClick={handleClick}/>
       </main>
         <Footer/>
