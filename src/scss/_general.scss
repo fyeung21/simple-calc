@@ -1,23 +1,18 @@
+@use './variables' as *;
+
 // typography
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #EEEEEE;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: $font-family;
+    background-color: $page-background-color;
 }
 
 
 // main sections
 
 main {
-    background-color: #B3BDCA;
+    background-color: $calculator-background-color;
     width: 600px;
     margin: 0 auto;
     padding: 1rem;
