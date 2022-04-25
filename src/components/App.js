@@ -13,74 +13,44 @@ const App = () => {
   //store result after calculation to display on screen
   const [result, setResult] = useState("");
 
-  // let buttonValue = e.target.value;
-
   //detects type and switches to correct function
-  // const handleClick = ({type}) => {
-  //   console.log('clicked');
-  //   if (type == 'clear') {
-  //     handleClear()
+  const handleClick = (type, value) => {
 
-  //   } else if (type == 'enter') {
-  //     handleEqual()
+    console.log('clicked', type);
+      console.log('clicked', value)
+    
+    if (type == 'clear') {
+      // handleClear()
 
-  //   } else if (type == 'operator') {
-  //     handleCalc()
+    } else if (type == 'enter') {
+      // handleEqual()
 
-  //   } else if (type == 'number') {
-  //     handleNumber()
-  //   }
-  // }
+    } else if (type == 'operator') {
+      handleOperator(value)
 
-  //input number to calc
-  // const handleNumber = (e) => {
-  //   e.preventDefault();
-  //   const number = e.target.elements.calculatorButtons.value;
-  //     setCalc([...calc, number]);
-  // }
+    } else if (type == 'number') {
+      
+      handleNumber(value)
+    }
+  }
 
-  //input operator to calc...
-  // const handleCalc = () => {
-  //   if (buttonValue == 'Add') {
-  //     e.preventDefault();
-  //     //use value prop...
-  //     let addition = calc++;
-  //     setCalc(addition)
+  //input number to calc string
+  const handleNumber = (value) => {
+      setCalc(`${calc}${value}`);
+  }
 
-  //   } else if (buttonValue == 'Subtract') {
-  //     let subtraction = calc--;
-  //     setCalc(subtraction)
-  //   }
-  // }
+  //input operator to calc string
+  const handleOperator = (value) => {
+    setCalc(`${calc} ${value} `);
+  }
 
   //calculate and displays result and reset calc
   // const handleEqual = () => {
   //   if (buttonValue == 'Equal') {
   //     console.log('calculated')
 
-  //     const math = (a, b, {value}) => {
-        
-  //       if (value === 'Add') {
-  //         a + b
+  //     eval(calc)
 
-  //       } else if (value === 'Subtract') {
-  //         a - b
-
-  //       } else if (value === 'Multiply') {
-  //         a * b
-
-  //       } else if (value === 'Divide') {
-
-  //         if (a || b === '0' ) {
-  //           setResult('cannot divde by zero')
-  //         } else {
-  //           a / b
-  //         }
-
-  //       } else {
-  //         setResult('math error');
-  //       }
-  //     }
   //     setCalc([...calc, math(a,b, {value})])
 
   //     setResult(calc)
@@ -105,13 +75,13 @@ const App = () => {
   //     setCalc("")
   //   }
   // }
-  // handleClick={handleClick}
+
   return (
     <div className="App">
         <Header title="Simple Calc"/>
       <main>
         <Display result={result}/>
-        <Buttons />
+        <Buttons handleClick={handleClick}/>
       </main>
         <Footer/>
     </div>

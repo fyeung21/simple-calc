@@ -12,7 +12,7 @@ const Buttons = ({handleClick}) => {
                     className={oneButton.className}
                     value={oneButton.value}
                     text={oneButton.text}
-                    onClick={handleClick}
+                    handleClick={handleClick}
                 />
             );
         })}
